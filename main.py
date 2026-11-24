@@ -17,6 +17,9 @@ OUTPUT_PATH = "/output/entry.txt"
 
 
 def main() -> None:
+    # Gate parity (kit RULES.txt): entry must be 1-200 chars, one line.
+    assert 1 <= len(ROAST) <= 200, "roast must be 1-200 characters"
+    assert "\n" not in ROAST, "roast must be a single line"
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         f.write(ROAST + "\n")
